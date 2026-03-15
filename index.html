@@ -1,0 +1,2303 @@
+<! "elec\elec\electron\electron.exe daima"> 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非遗工坊 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#9E2A2B">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9E2A2B',
+                        secondary: '#2A6F97',
+                        light: '#F5F0E6',
+                        dark: '#332E29',
+                    },
+                    fontFamily: {
+                        song: ['"Noto Serif SC"', 'serif'],
+                        sans: ['"Noto Sans SC"', 'sans-serif'],
+                        kai: ['"KaiTi"', '"STKaiti"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass {
+                background: 
+    url("aa/beijingtu.png") repeat, /* 替换为你的纹理图路径（本地或在线） */
+    rgba(245, 240, 230, 0.95); /* 基础米色，接近参考图的浅米 */
+  
+  backdrop-filter: blur(10px); /* 毛玻璃模糊，保留现代感 */
+  -webkit-backdrop-filter: blur(10px);
+  
+  border: 1px solid rgba(42, 111, 151, 0.1); /* 浅蓝细边框，呼应主题色 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* 柔和阴影，提升层次感 */
+            }
+            /* 其他样式保持不变... */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-light font-sans text-dark min-h-screen scrollbar-beauty">
+
+    <!-- 修改后的导航栏 -->
+    <nav class="fixed top-0 left-0 w-full glass z-50 transition-all duration-300" id="navbar">
+        <div class="w-full px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 左侧：非遗工坊和图标 -->
+               <a href="index.html" class="flex items-center gap-2">
+    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+        <!-- 替换为您的SVG图标 -->
+        <svg class="w-6 h-6 text-light" fill="currentColor" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M976.401 501.651l-1.707-175.819h48.416l-18.031-29.361h-49.844c-0.688-38.921-47.796-30.726-47.796-30.726v38.579l-139.291 0.341v-64.866h54.622l-20.483-35.506h-55.989c-6.146-47.114-56.673-34.823-56.673-34.823v53.942H333.483V169.47s-50.526-12.292-56.672 34.823h-55.99l-20.483 35.506h54.623v64.866l-139.291-0.341v-38.579s-47.109-8.195-47.796 30.726H18.03L0 325.833h48.416l-1.707 175.819h12.973l-19.118 353.35h58.038v-353.35l159.434 0.343-16.729 353.007h64.183l0.683-392.609h410.766l0.683 392.609h64.182l-16.729-353.007 159.435-0.343v353.35h58.037l-19.118-353.35h12.972z"></path>
+        </svg>
+    </div>
+    <span class="font-song font-bold text-2xl text-red-450">非遗工坊</span>
+</a>
+
+
+                <!-- 中间：导航链接（桌面端） -->
+                <div class="hidden md:flex gap-8">
+                    <a href="index.html" class="text-secondary font-medium text-lg hover:text-primary transition-colors">首页</a>
+                    <a href="heritage.html" class="text-secondary font-medium text-lg hover:text-primary transition-colors">非遗库</a>
+                    <div class="relative group">
+                        <a href="class.html" class="text-secondary font-medium text-lg hover:text-primary transition-colors flex items-center">
+                            在线课堂
+                            <i class="fa fa-angle-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-48 glass rounded-lg shadow-lg overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="kecheng.html" class="block px-4 py-2 text-secondary hover:bg-primary/10 hover:text-primary transition-colors">课程列表</a>
+                            <a href="inheritor-dashboard.html" class="block px-4 py-2 text-secondary hover:bg-primary/10 hover:text-primary transition-colors">传承人工作台</a>
+                            <a href="inheritor-certify.html" class="block px-4 py-2 text-secondary hover:bg-primary/10 hover:text-primary transition-colors">传承人认证</a>
+                        </div>
+                    </div>
+                    <a href="map.html" class="text-secondary font-medium text-lg hover:text-primary transition-colors">非遗地图</a>
+                    <a href="stories.html" class="text-secondary font-medium text-lg hover:text-primary transition-colors">非遗故事</a>
+                    <a href="crowdfunding.html" class="text-primary font-medium text-lg">文创众筹</a>
+                </div>
+
+                <!-- 右侧：搜索框、朗读按钮和移动端菜单按钮 -->
+                <div class="hidden md:flex items-center gap-3">
+                    <div class="relative flex-grow max-w-xs">
+                        <input type="text" id="globalSearchInput" placeholder="搜索非遗..." 
+                            class="w-full pl-10 pr-4 py-2 rounded-full border border-secondary/20 focus:outline-none focus:ring-2 focus:ring-primary/30">
+                        <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-secondary/60"></i>
+                    </div>
+                    <button id="readAloudBtn" class="w-10 h-10 rounded-full bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors flex items-center justify-center" title="页面朗读">
+                        <i class="fa fa-volume-up"></i>
+                    </button>
+                </div>
+                <button class="md:hidden text-secondary text-xl" id="menuBtn">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden glass" id="mobileMenu">
+            <div class="px-4 py-3 space-y-3">
+                <!-- 移动端搜索框 -->
+                <div class="relative mb-4">
+                    <input type="text" id="mobileSearchInput" placeholder="搜索非遗..." 
+                        class="w-full pl-10 pr-4 py-2 rounded-full border border-secondary/20 focus:outline-none focus:ring-2 focus:ring-primary/30">
+                    <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-secondary/60"></i>
+                </div>
+                <!-- 移动端朗读按钮 -->
+                <button id="mobileReadAloudBtn" class="w-full py-3 rounded-full bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors flex items-center justify-center mb-4">
+                    <i class="fa fa-volume-up mr-2"></i>
+                    <span>页面朗读</span>
+                </button>
+                <a href="index.html" class="block text-secondary font-medium text-lg hover:text-primary transition-colors">首页</a>
+                <a href="heritage.html" class="block text-secondary font-medium text-lg hover:text-primary transition-colors">非遗库</a>
+                <div class="mobile-dropdown">
+                    <a href="class.html" class="block text-secondary font-medium text-lg hover:text-primary transition-colors flex justify-between items-center">
+                        在线课堂
+                        <i class="fa fa-angle-down text-xs transition-transform"></i>
+                    </a>
+                    <div class="mobile-dropdown-content hidden pl-4 mt-1 border-l-2 border-primary/30 space-y-2">
+                        <a href="kecheng.html" class="block text-secondary/80 text-base hover:text-primary transition-colors py-1">课程列表</a>
+                        <a href="inheritor-dashboard.html" class="block text-secondary/80 text-base hover:text-primary transition-colors py-1">传承人工作台</a>
+                        <a href="inheritor-certify.html" class="block text-secondary/80 text-base hover:text-primary transition-colors py-1">传承人认证</a>
+                    </div>
+                </div>
+                <a href="map.html" class="block text-secondary font-medium text-lg hover:text-primary transition-colors">非遗地图</a>
+                <a href="stories.html" class="block text-secondary font-medium text-lg hover:text-primary transition-colors">非遗故事</a>
+                <a href="crowdfunding.html" class="block text-primary font-medium text-lg">文创众筹</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端下拉菜单JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 移动端下拉菜单逻辑
+            const mobileDropdown = document.querySelector('.mobile-dropdown');
+            if (mobileDropdown) {
+                const dropdownToggle = mobileDropdown.querySelector('a');
+                const dropdownContent = mobileDropdown.querySelector('.mobile-dropdown-content');
+                const dropdownIcon = dropdownToggle.querySelector('i');
+
+                dropdownToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    dropdownContent.classList.toggle('hidden');
+                    dropdownIcon.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
+
+    <!-- 视频横幅区域：优化字体样式（增强字号、字重、阴影和描边） -->
+    <section class="relative h-screen flex items-center overflow-hidden">
+        <!-- 视频（默认静音才能自动播放） -->
+        <video id="bgVideo" class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
+            <source src="vedio/feiyi.mp4" type="video/mp4">
+            <source src="vedio/feiyi.mp4" type="video/webm">
+            您的浏览器不支持HTML5视频，请升级。
+        </video>
+
+        <!-- 声音开关按钮 -->
+        <button id="soundToggle" class="sound-toggle absolute bottom-6 right-6 z-20 bg-dark/50 text-light w-12 h-12 rounded-full flex items-center justify-center border border-light/20">
+            <i class="fa fa-volume-off text-xl" id="soundIcon"></i>
+        </button>
+
+        <!-- 文字叠加：优化字体（增大字号、提升字重、增加阴影和描边） -->
+        <div class="relative z-10 text-white px-4 md:px-8 max-w-4xl">
+            <h1 class="font-kai font-black text-5xl md:text-6xl lg:text-7xl mb-3 banner-text-shadow banner-text-stroke">传承千年技艺</h1>
+            <h2 class="font-kai font-black text-4xl md:text-5xl lg:text-6xl text-primary mb-7 banner-text-shadow">焕发非遗新生</h2>
+            <p class="text-xl md:text-2xl mb-8 text-light/90 max-w-2xl" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.4);">探索国家级非物质文化遗产，连接传统与现代，让古老技艺在数字时代绽放光彩</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="heritage.html" class="btn-hover bg-primary text-light px-6 py-3 rounded-md font-medium text-lg">探索非遗库</a>
+                <a href="map.html" class="btn-hover bg-light/20 backdrop-blur-sm text-light border border-light/30 px-6 py-3 rounded-md font-medium text-lg hover:bg-light/30">查看非遗地图</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        const bgVideo = document.getElementById('bgVideo');
+        const soundToggle = document.getElementById('soundToggle');
+        const soundIcon = document.getElementById('soundIcon');
+        let isMuted = true; // 初始静音
+
+        bgVideo.volume = 1;
+
+        soundToggle.addEventListener('click', () => {
+            isMuted = !isMuted;
+            bgVideo.muted = isMuted;
+            if (isMuted) {
+                soundIcon.classList.replace('fa-volume-up', 'fa-volume-off');
+            } else {
+                soundIcon.classList.replace('fa-volume-off', 'fa-volume-up');
+                bgVideo.play(); // 点击时确保视频继续播放
+            }
+        });
+
+        // 全局搜索功能
+        function setupSearchInput(inputElement) {
+            if (!inputElement) return;
+            
+            inputElement.addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') {
+                    const searchTerm = this.value.trim();
+                    if (searchTerm) {
+                        // 跳转到非遗库页面并传递搜索词
+                        window.location.href = `heritage.html?search=${encodeURIComponent(searchTerm)}`;
+                    } else {
+                        // 如果搜索词为空，直接跳转到非遗库页面
+                        window.location.href = 'heritage.html';
+                    }
+                }
+            });
+        }
+
+        // 为桌面端和移动端搜索框设置事件监听
+        document.addEventListener('DOMContentLoaded', function() {
+            const desktopSearch = document.getElementById('globalSearchInput');
+            const mobileSearch = document.getElementById('mobileSearchInput');
+            
+            setupSearchInput(desktopSearch);
+            setupSearchInput(mobileSearch);
+        });
+
+        // 页面朗读功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const readAloudBtn = document.getElementById('readAloudBtn');
+            const mobileReadAloudBtn = document.getElementById('mobileReadAloudBtn');
+            let isReading = false;
+            let speech = null;
+
+            // 获取页面主要内容文本
+            function getPageContent() {
+                // 获取页面主要标题和段落
+                const mainContent = [];
+                
+                // 获取主标题
+                const mainTitle = document.querySelector('h1');
+                if (mainTitle) mainContent.push(mainTitle.textContent.trim());
+                
+                // 获取副标题
+                const subTitle = document.querySelector('h2');
+                if (subTitle) mainContent.push(subTitle.textContent.trim());
+                
+                // 获取主要描述段落
+                const mainParagraph = document.querySelector('section p');
+                if (mainParagraph) mainContent.push(mainParagraph.textContent.trim());
+                
+                // 获取精选非遗项目部分
+                const featuredSection = document.getElementById('featured');
+                if (featuredSection) {
+                    const featuredTitles = featuredSection.querySelectorAll('h3');
+                    featuredTitles.forEach(title => {
+                        mainContent.push(title.textContent.trim());
+                    });
+                    
+                    const featuredDescriptions = featuredSection.querySelectorAll('p');
+                    featuredDescriptions.forEach(desc => {
+                        mainContent.push(desc.textContent.trim());
+                    });
+                }
+                
+                // 获取非遗故事部分
+                const storiesSection = document.querySelector('section.bg-light');
+                if (storiesSection) {
+                    const storyTitles = storiesSection.querySelectorAll('h3');
+                    storyTitles.forEach(title => {
+                        mainContent.push(title.textContent.trim());
+                    });
+                    
+                    const storyDescriptions = storiesSection.querySelectorAll('p');
+                    storyDescriptions.forEach(desc => {
+                        mainContent.push(desc.textContent.trim());
+                    });
+                }
+                
+                // 过滤空字符串并合并
+                return mainContent.filter(text => text.length > 0).join('。');
+            }
+
+            // 开始或停止朗读
+            function toggleReadAloud() {
+                if (!('speechSynthesis' in window)) {
+                    alert('您的浏览器不支持语音合成功能，请使用Chrome、Edge或Safari浏览器。');
+                    return;
+                }
+
+                if (isReading) {
+                    // 停止朗读
+                    window.speechSynthesis.cancel();
+                    isReading = false;
+                    updateReadAloudButton(false);
+                } else {
+                    // 开始朗读
+                    const content = getPageContent();
+                    if (!content) {
+                        alert('未找到可朗读的内容。');
+                        return;
+                    }
+
+                    speech = new SpeechSynthesisUtterance(content);
+                    speech.lang = 'zh-CN';
+                    speech.rate = 0.9; // 语速稍慢
+                    speech.pitch = 1.0;
+                    speech.volume = 1;
+
+                    speech.onstart = function() {
+                        isReading = true;
+                        updateReadAloudButton(true);
+                    };
+
+                    speech.onend = function() {
+                        isReading = false;
+                        updateReadAloudButton(false);
+                    };
+
+                    speech.onerror = function() {
+                        isReading = false;
+                        updateReadAloudButton(false);
+                        alert('朗读过程中出现错误，请重试。');
+                    };
+
+                    window.speechSynthesis.speak(speech);
+                }
+            }
+
+            // 更新朗读按钮状态
+            function updateReadAloudButton(reading) {
+                const desktopIcon = readAloudBtn?.querySelector('i');
+                const mobileIcon = mobileReadAloudBtn?.querySelector('i');
+                const mobileText = mobileReadAloudBtn?.querySelector('span');
+                
+                if (reading) {
+                    // 正在朗读，显示停止图标
+                    if (desktopIcon) desktopIcon.className = 'fa fa-stop';
+                    if (mobileIcon) mobileIcon.className = 'fa fa-stop mr-2';
+                    if (mobileText) mobileText.textContent = '停止朗读';
+                    if (readAloudBtn) readAloudBtn.title = '停止朗读';
+                } else {
+                    // 停止朗读，显示播放图标
+                    if (desktopIcon) desktopIcon.className = 'fa fa-volume-up';
+                    if (mobileIcon) mobileIcon.className = 'fa fa-volume-up mr-2';
+                    if (mobileText) mobileText.textContent = '页面朗读';
+                    if (readAloudBtn) readAloudBtn.title = '页面朗读';
+                }
+            }
+
+            // 为桌面端和移动端朗读按钮添加事件监听
+            if (readAloudBtn) {
+                readAloudBtn.addEventListener('click', toggleReadAloud);
+            }
+            
+            if (mobileReadAloudBtn) {
+                mobileReadAloudBtn.addEventListener('click', toggleReadAloud);
+            }
+
+            // 页面离开时停止朗读
+            window.addEventListener('beforeunload', function() {
+                if (isReading && window.speechSynthesis) {
+                    window.speechSynthesis.cancel();
+                }
+            });
+        });
+    </script>
+</body>
+
+
+
+
+<!-- 精选非遗项目（层叠轮播版） -->
+<section id="featured" class="py-20 bg-[url('aa/beijingtu.jpg')] bg-cover bg-center overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-song font-bold text-[clamp(1.8rem,5vw,2.5rem)] text-primary mb-4">精选非遗项目</h2>
+            <p class="text-secondary/80 max-w-2xl mx-auto">
+                这些国家级非物质文化遗产代表了中华民族千百年来的智慧结晶，承载着丰富的文化内涵
+            </p>
+        </div>
+
+        <!-- 轮播容器：相对定位 + 溢出隐藏 + 居中对齐 -->
+        <div class="relative">
+            <!-- 轮播轨道：绝对定位 + 过渡动画 + 居中 -->
+            <div id="heritageCarousel" class="flex transition-transform duration-800 ease-out justify-center">
+                <!-- 非遗项目1：苏绣 -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/suxiu4.jpg" alt="苏绣作品展示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">苏绣</h3>
+                                <span class="text-sm text-secondary/80">江苏 · 苏州</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                中国四大名绣之一，以针法精细、色彩雅致著称，历史可追溯至2000多年前的春秋战国时期。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统刺绣</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">手工艺</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=su-embroidery" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#su-embroidery-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 非遗项目6：青花瓷制作（新增） -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/qinghuaci.jpg" alt="青花瓷制作" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">青花瓷制作</h3>
+                                <span class="text-sm text-secondary/80">江西 · 景德镇</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                以钴料在瓷坯上绘画，施透明釉后高温烧成，白地蓝花，色泽淡雅，是中国瓷器的代表品种之一。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统陶瓷</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">手工技艺</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=blue-and-white" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#blue-and-white-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 非遗项目3：皮影戏 -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/piyingxi.jpg" alt="皮影戏表演" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">皮影戏</h3>
+                                <span class="text-sm text-secondary/80">陕西 · 华县</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                以兽皮剪影表演故事的民间戏剧，艺人操纵影人配合唱腔讲述，是中国民间艺术的"活化石"。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统戏剧</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">手工雕刻</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=shadow-play" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#shadow-play-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 非遗项目4：剪纸艺术（新增） -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/cixiu.jpg" alt="剪纸艺术" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">潮州剪纸</h3>
+                                <span class="text-sm text-secondary/80">广东 · 潮州</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                以纤巧秀丽、玲珑剔透著称，用剪刀或刻刀剪刻图案，广泛应用于节日装饰、婚丧嫁娶等民俗。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统剪纸</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">民俗艺术</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=paper-cut" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#paper-cut-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- 非遗项目2：榫卯工艺 -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/sunmao.jpg" alt="榫卯结构展示" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">榫卯工艺</h3>
+                                <span class="text-sm text-secondary/80">全国多地</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                传统建筑、家具的核心连接工艺，通过凹凸咬合实现牢固连接，不用一钉一胶，体现古代工匠智慧。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统木工</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">建筑技艺</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=joinery" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#joinery-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 非遗项目5：古琴艺术（新增） -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/guqin2.jpg" alt="古琴艺术" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">古琴艺术</h3>
+                                <span class="text-sm text-secondary/80">全国多地</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                中国最古老的弹拨乐器之一，有3000多年历史，音色深沉古朴，蕴含"乐与政通"的文化思想。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统音乐</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">乐器制作</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=guqin" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#guqin-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 非遗项目7：云锦织造（新增） -->
+                <div class="carousel-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden group h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="aa/yunjin.jpg" alt="云锦织造" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute top-4 right-4 bg-primary text-light text-xs px-3 py-1 rounded-full">
+                                国家级
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <h3 class="font-bold text-xl text-primary">云锦织造</h3>
+                                <span class="text-sm text-secondary/80">江苏 · 南京</span>
+                            </div>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-3">
+                                中国古代皇家御用锦缎，采用"通经断纬"工艺，图案华丽、色彩丰富，有"寸锦寸金"之称。
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">传统织锦</span>
+                                <span class="bg-secondary/10 text-secondary text-xs px-2 py-1 rounded">手工织造</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <a href="heritage-detail.html?id=yunjin" class="text-primary font-medium hover:underline flex items-center">
+                                    了解详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                                </a>
+                                <a href="stories.html#yunjin-story" class="text-secondary/80 hover:text-secondary transition-colors">
+                                    <i class="fa fa-book"></i> 相关故事
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 轮播左右控制按钮（优化位置和样式） -->
+            <!-- 轮播左右控制按钮（修改后） -->
+            <button id="carouselPrev" class="absolute top-1/2 left-[-10px] sm:left-[-20px] md:left-[-30px] -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-secondary hover:bg-primary hover:text-light transition-all z-20">
+                <i class="fa fa-angle-left text-2xl"></i>
+            </button>
+            <button id="carouselNext" class="absolute top-1/2 right-[-10px] sm:right-[-20px] md:right-[-30px] -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-secondary hover:bg-primary hover:text-light transition-all z-20">
+                <i class="fa fa-angle-right text-2xl"></i>
+            </button>
+
+            <!-- 轮播指示器（小圆点） -->
+            <div class="flex justify-center mt-12 gap-3" id="carouselIndicators">
+                <button class="w-3 h-3 rounded-full bg-primary transition-all" data-index="0"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="1"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="2"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="3"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="4"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="5"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="6"></button>
+            </div>
+        </div>
+
+        <div class="text-center mt-16">
+            <a href="heritage.html" class="inline-block bg-secondary/10 text-secondary px-8 py-3 rounded-lg font-medium hover:bg-secondary/20 transition-colors">
+                查看更多非遗项目 <i class="fa fa-long-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- 轮播功能JS（新增层叠视觉逻辑） -->
+<script>
+    // 非遗项目轮播逻辑（含层叠视觉效果）
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('heritageCarousel');
+        const prevBtn = document.getElementById('carouselPrev');
+        const nextBtn = document.getElementById('carouselNext');
+        const indicators = document.getElementById('carouselIndicators').querySelectorAll('button');
+        const carouselItems = document.querySelectorAll('.carousel-item'); // 所有轮播项
+        let currentIndex = 2; // 初始中间项索引（第3个项目）
+        let slideCount = carouselItems.length; // 总项目数（自动获取，无需手动修改）
+        let intervalId;
+        let isSmallScreen = window.innerWidth < 640; // 是否为小屏（仅显示1项）
+
+        // 1. 初始化轮播位置（确保初始中间项居中）
+        function initCarousel() {
+            // 小屏仅显示1项，无需层叠效果
+            isSmallScreen = window.innerWidth < 640;
+            if (isSmallScreen) {
+                // 小屏：每次滑动1个项目宽度
+                const itemWidth = carouselItems[0].offsetWidth + 20; // 项目宽度 + 间距
+                carousel.style.transform = `translateX(-${(currentIndex - 1) * itemWidth}px)`;
+                // 隐藏所有项目的缩放效果，保持一致大小
+                carouselItems.forEach(item => {
+                    item.style.transform = 'scale(1)';
+                    item.style.opacity = '1';
+                    item.style.zIndex = '1';
+                });
+            } else {
+                // 中大屏：层叠效果（中间大，两侧依次小）
+                updateItemStyles();
+            }
+        }
+
+        // 2. 更新轮播项样式（层叠视觉核心逻辑）
+        function updateItemStyles() {
+            carouselItems.forEach((item, index) => {
+                // 计算当前项与中间项的距离
+                const distance = Math.abs(index - currentIndex);
+
+                // 根据距离设置缩放比例、透明度、层级
+                let scale = 1;
+                let opacity = 1;
+                let zIndex = 10 - distance; // 中间项层级最高
+
+                switch (distance) {
+                    case 0: // 中间项（当前激活项）
+                        scale = 1; // 最大尺寸（100%）
+                        opacity = 1; // 完全不透明
+                        break;
+                    case 1: // 中间项相邻项（左1、右1）
+                        scale = 0.9; // 缩小到90%
+                        opacity = 0.9; // 轻微透明
+                        break;
+                    case 2: // 中间项隔一项（左2、右2）
+                        scale = 0.8; // 缩小到80%
+                        opacity = 0.8; // 半透明
+                        break;
+                    default: // 距离≥3的项
+                        scale = 0.7; // 缩小到70%
+                        opacity = 0.7; // 更透明
+                        break;
+                }
+
+                // 应用样式（添加过渡动画）
+                item.style.transform = `scale(${scale})`;
+                item.style.opacity = opacity;
+                item.style.zIndex = zIndex;
+                item.style.transition = 'all 0.8s ease-out';
+            });
+
+            // 调整轮播轨道位置，确保中间项居中
+            const middleItem = carouselItems[currentIndex];
+            const containerWidth = carousel.parentElement.offsetWidth;
+            const middleItemWidth = middleItem.offsetWidth;
+            const middlePosition = (containerWidth - middleItemWidth) / 2; // 中间项居中位置
+            const itemOffset = middleItem.offsetLeft - carousel.offsetLeft; // 中间项相对于轨道的偏移
+            const translateX = middlePosition - itemOffset; // 轨道需要移动的距离
+
+            carousel.style.transform = `translateX(${translateX}px)`;
+        }
+
+        // 3. 切换到指定索引项
+        function goToSlide(index) {
+            // 边界处理：确保索引在有效范围内
+            if (index < 0) index = 0;
+            if (index >= slideCount) index = slideCount - 1;
+
+            currentIndex = index;
+            // 更新指示器状态
+            updateIndicators();
+            // 更新轮播项样式和位置
+            initCarousel();
+        }
+
+        // 4. 下一张（自动滑动方向）
+        function nextSlide() {
+            // 循环逻辑：滑到最后一张后，跳回第1张（从右向左循环）
+            currentIndex = (currentIndex + 1) % slideCount;
+            goToSlide(currentIndex);
+        }
+
+        // 5. 上一张
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+            goToSlide(currentIndex);
+        }
+
+        // 6. 更新指示器状态
+        function updateIndicators() {
+            indicators.forEach((btn, index) => {
+                if (index === currentIndex) {
+                    btn.classList.add('bg-primary', 'w-6'); // 激活项：红色+更长宽度
+                    btn.classList.remove('bg-secondary/30', 'hover:bg-secondary/50', 'w-3');
+                } else {
+                    btn.classList.remove('bg-primary', 'w-6');
+                    btn.classList.add('bg-secondary/30', 'hover:bg-secondary/50', 'w-3');
+                }
+            });
+        }
+
+        // 7. 自动轮播
+        function startAutoPlay() {
+            intervalId = setInterval(nextSlide, 6000); // 6秒自动切换（ slower for better visual effect ）
+        }
+
+        // 8. 暂停自动轮播
+        function stopAutoPlay() {
+            clearInterval(intervalId);
+        }
+
+        // 绑定事件
+        // 左右按钮
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            prevSlide();
+            startAutoPlay();
+        });
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            nextSlide();
+            startAutoPlay();
+        });
+
+        // 指示器点击
+        indicators.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                stopAutoPlay();
+                goToSlide(index);
+                startAutoPlay();
+            });
+        });
+
+        // 鼠标悬停轮播区域时暂停，离开后继续
+        carousel.parentElement.addEventListener('mouseenter', stopAutoPlay);
+        carousel.parentElement.addEventListener('mouseleave', startAutoPlay);
+
+        // 窗口大小变化时重新初始化（适配响应式）
+        window.addEventListener('resize', () => {
+            stopAutoPlay();
+            initCarousel();
+            startAutoPlay();
+        });
+
+        // 初始化轮播
+        initCarousel();
+        startAutoPlay();
+    });
+</script>
+
+<!-- 即将开始的课程（层叠轮播版） -->
+<section class="py-20 bg-gradient-to-b from-light to-secondary/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div>
+                <h2 class="font-song font-bold text-[clamp(1.8rem,5vw,2.5rem)] text-primary mb-4">即将开始的课程</h2>
+                <p class="text-secondary/80 max-w-2xl">
+                    由国家级传承人亲自授课，带你近距离学习非遗技艺，感受传统文化魅力
+                </p>
+            </div>
+            <a href="class.html" class="mt-4 md:mt-0 text-primary font-medium hover:underline flex items-center">
+                全部课程 <i class="fa fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+
+        <!-- 课程层叠轮播容器 -->
+        <div class="relative">
+            <!-- 轮播轨道 -->
+            <div id="courseCarousel" class="flex transition-transform duration-800 ease-out justify-center">
+                <!-- 课程1：苏绣 -->
+                <div class="course-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden h-full">
+                        <div class="relative h-56">
+                            <img src="aa/suxiu333.jpg" alt="苏绣课程" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-primary text-light text-xs px-3 py-1 rounded-full">直播课程</div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary/80 to-transparent text-light p-4">
+                                <span class="text-sm"><i class="fa fa-clock-o mr-1"></i> 2025-10-15 14:00-16:00</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-primary mb-2">苏绣基础：牡丹纹样针法教学</h3>
+                            <div class="flex items-center text-secondary/80 text-sm mb-4">
+                                <img src="teacher-suxiu.jpg" alt="李芳老师" class="w-10 h-10 rounded-full mr-3 object-cover">
+                                <span>李芳 · 国家级苏绣传承人</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-secondary/80">
+                                    <i class="fa fa-user mr-1"></i> 248人已报名
+                                </div>
+                                <span class="text-primary font-medium">免费</span>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-secondary/10">
+                                <!-- 报名跳转：课程详情页（带课程ID） -->
+                                <a href="course-detail.html?id=su-embroidery-1015" class="w-full bg-primary text-light py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-block text-center">
+                                    立即报名
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程2：皮影戏 -->
+                <div class="course-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden h-full">
+                        <div class="relative h-56">
+                            <img src="aa/piyingxi2.jpg" alt="皮影课程" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-primary text-light text-xs px-3 py-1 rounded-full">直播课程</div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary/80 to-transparent text-light p-4">
+                                <span class="text-sm"><i class="fa fa-clock-o mr-1"></i> 2025-10-16 19:30-21:00</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-primary mb-2">皮影戏创作：人物设计与表演</h3>
+                            <div class="flex items-center text-secondary/80 text-sm mb-4">
+                                <img src="https://picsum.photos/id/65/100/100" alt="张美玲老师" class="w-10 h-10 rounded-full mr-3 object-cover">
+                                <span>张美玲 · 国家级皮影戏传承人</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-secondary/80">
+                                    <i class="fa fa-user mr-1"></i> 156人已报名
+                                </div>
+                                <span class="text-primary font-medium">免费</span>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-secondary/10">
+                                <a href="course-detail.html?id=shadow-play-1016" class="w-full bg-primary text-light py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-block text-center">
+                                    立即报名
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程3：榫卯工艺（新增） -->
+                <div class="course-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden h-full">
+                        <div class="relative h-56">
+                            <img src="aa/sunmao2.jpg" alt="榫卯课程" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-secondary text-light text-xs px-3 py-1 rounded-full">录播课程</div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary/80 to-transparent text-light p-4">
+                                <span class="text-sm"><i class="fa fa-clock-o mr-1"></i> 2025-10-18 00:00开放</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-primary mb-2">榫卯入门：家具结构基础</h3>
+                            <div class="flex items-center text-secondary/80 text-sm mb-4">
+                                <img src="https://picsum.photos/id/91/100/100" alt="王建国老师" class="w-10 h-10 rounded-full mr-3 object-cover">
+                                <span>王建国 · 省级榫卯工艺传承人</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-secondary/80">
+                                    <i class="fa fa-user mr-1"></i> 112人已预约
+                                </div>
+                                <span class="text-primary font-medium">¥99</span>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-secondary/10">
+                                <a href="course-detail.html?id=joinery-1018" class="w-full bg-primary text-light py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-block text-center">
+                                    立即预约
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程4：青花瓷（新增） -->
+                <div class="course-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden h-full">
+                        <div class="relative h-56">
+                            <img src="aa/qinghuaci2.jpg" alt="青花瓷课程" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-primary text-light text-xs px-3 py-1 rounded-full">直播课程</div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary/80 to-transparent text-light p-4">
+                                <span class="text-sm"><i class="fa fa-clock-o mr-1"></i> 2025-10-20 15:00-17:30</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-primary mb-2">青花瓷绘制：缠枝莲纹样</h3>
+                            <div class="flex items-center text-secondary/80 text-sm mb-4">
+                                <img src="https://picsum.photos/id/22/100/100" alt="陈秀莲老师" class="w-10 h-10 rounded-full mr-3 object-cover">
+                                <span>陈秀莲 · 国家级青花瓷传承人</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-secondary/80">
+                                    <i class="fa fa-user mr-1"></i> 189人已报名
+                                </div>
+                                <span class="text-primary font-medium">免费</span>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-secondary/10">
+                                <a href="course-detail.html?id=blue-and-white-1020" class="w-full bg-primary text-light py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-block text-center">
+                                    立即报名
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 课程5：剪纸艺术（新增） -->
+                <div class="course-item min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] px-2 sm:px-3 lg:px-4 transition-all duration-800 ease-out">
+                    <div class="card-float glass rounded-xl overflow-hidden h-full">
+                        <div class="relative h-56">
+                            <img src="aa/cixiu2.jpg" alt="剪纸课程" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4 bg-secondary text-light text-xs px-3 py-1 rounded-full">录播课程</div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-primary/80 to-transparent text-light p-4">
+                                <span class="text-sm"><i class="fa fa-clock-o mr-1"></i> 2025-10-22 00:00开放</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl text-primary mb-2">潮州剪纸：吉祥纹样创作</h3>
+                            <div class="flex items-center text-secondary/80 text-sm mb-4">
+                                <img src="https://picsum.photos/id/54/100/100" alt="林淑珍老师" class="w-10 h-10 rounded-full mr-3 object-cover">
+                                <span>林淑珍 · 省级剪纸艺术传承人</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center text-secondary/80">
+                                    <i class="fa fa-user mr-1"></i> 98人已预约
+                                </div>
+                                <span class="text-primary font-medium">¥69</span>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-secondary/10">
+                                <a href="course-detail.html?id=paper-cut-1022" class="w-full bg-primary text-light py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-block text-center">
+                                    立即预约
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 轮播控制按钮 -->
+            <button id="coursePrev" class="absolute top-1/2 left-[-10px] sm:left-[-20px] md:left-[-30px] -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-secondary hover:bg-primary hover:text-light transition-all z-20">
+                <i class="fa fa-angle-left text-2xl"></i>
+            </button>
+            <button id="courseNext" class="absolute top-1/2 right-[-10px] sm:right-[-20px] md:right-[-30px] -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-secondary hover:bg-primary hover:text-light transition-all z-20">
+                <i class="fa fa-angle-right text-2xl"></i>
+            </button>
+
+            <!-- 轮播指示器 -->
+            <div class="flex justify-center mt-12 gap-3" id="courseIndicators">
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="0"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="1"></button>
+                <button class="w-3 h-3 rounded-full bg-primary w-6 transition-all" data-index="2"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="3"></button>
+                <button class="w-3 h-3 rounded-full bg-secondary/30 hover:bg-secondary/50 transition-all" data-index="4"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- 课程轮播JS（放在body结束前） -->
+<script>
+    // 课程层叠轮播逻辑
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('courseCarousel');
+        const prevBtn = document.getElementById('coursePrev');
+        const nextBtn = document.getElementById('courseNext');
+        const indicators = document.getElementById('courseIndicators').querySelectorAll('button');
+        const courseItems = document.querySelectorAll('.course-item');
+        let currentIndex = 2; // 初始中间项（第3个课程）
+        let courseCount = courseItems.length;
+        let intervalId;
+        let isSmallScreen = window.innerWidth < 640;
+
+        // 初始化轮播
+        function initCarousel() {
+            isSmallScreen = window.innerWidth < 640;
+            if (isSmallScreen) {
+                // 小屏：单项目轮播
+                const itemWidth = courseItems[0].offsetWidth + 20;
+                carousel.style.transform = `translateX(-${(currentIndex - 1) * itemWidth}px)`;
+                courseItems.forEach(item => {
+                    item.style.transform = 'scale(1)';
+                    item.style.opacity = '1';
+                    item.style.zIndex = '1';
+                });
+            } else {
+                // 中大屏：层叠效果
+                updateItemStyles();
+            }
+        }
+
+        // 更新课程卡片样式（层叠核心）
+        function updateItemStyles() {
+            courseItems.forEach((item, index) => {
+                const distance = Math.abs(index - currentIndex);
+                let scale = 1, opacity = 1, zIndex = 10 - distance;
+
+                switch (distance) {
+                    case 0: scale = 1; opacity = 1; break; // 中间项（最大）
+                    case 1: scale = 0.9; opacity = 0.9; break; // 相邻项
+                    case 2: scale = 0.8; opacity = 0.8; break; // 隔一项
+                    default: scale = 0.7; opacity = 0.7; break; // 更远项
+                }
+
+                item.style.transform = `scale(${scale})`;
+                item.style.opacity = opacity;
+                item.style.zIndex = zIndex;
+                item.style.transition = 'all 0.8s ease-out';
+            });
+
+            // 居中对齐
+            const middleItem = courseItems[currentIndex];
+            const containerWidth = carousel.parentElement.offsetWidth;
+            const middleWidth = middleItem.offsetWidth;
+            const middlePos = (containerWidth - middleWidth) / 2;
+            const itemOffset = middleItem.offsetLeft - carousel.offsetLeft;
+            carousel.style.transform = `translateX(${middlePos - itemOffset}px)`;
+        }
+
+        // 切换课程
+        function goToSlide(index) {
+            if (index < 0) index = 0;
+            if (index >= courseCount) index = courseCount - 1;
+            currentIndex = index;
+            updateIndicators();
+            initCarousel();
+        }
+
+        // 下一张/上一张
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % courseCount;
+            goToSlide(currentIndex);
+        }
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + courseCount) % courseCount;
+            goToSlide(currentIndex);
+        }
+
+        // 更新指示器
+        function updateIndicators() {
+            indicators.forEach((btn, index) => {
+                if (index === currentIndex) {
+                    btn.classList.add('bg-primary', 'w-6');
+                    btn.classList.remove('bg-secondary/30', 'hover:bg-secondary/50', 'w-3');
+                } else {
+                    btn.classList.remove('bg-primary', 'w-6');
+                    btn.classList.add('bg-secondary/30', 'hover:bg-secondary/50', 'w-3');
+                }
+            });
+        }
+
+        // 自动轮播
+        function startAutoPlay() {
+            intervalId = setInterval(nextSlide, 7000); // 7秒切换
+        }
+        function stopAutoPlay() {
+            clearInterval(intervalId);
+        }
+
+        // 事件绑定
+        prevBtn.addEventListener('click', () => { stopAutoPlay(); prevSlide(); startAutoPlay(); });
+        nextBtn.addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
+        indicators.forEach((btn, index) => {
+            btn.addEventListener('click', () => { stopAutoPlay(); goToSlide(index); startAutoPlay(); });
+        });
+        carousel.parentElement.addEventListener('mouseenter', stopAutoPlay);
+        carousel.parentElement.addEventListener('mouseleave', startAutoPlay);
+        window.addEventListener('resize', () => { stopAutoPlay(); initCarousel(); startAutoPlay(); });
+
+        // 初始化
+        initCarousel();
+        startAutoPlay();
+    });
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非遗文化地图 - Leaflet.js实现</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- 自定义样式 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .font-song {
+            font-family: 'SimSun', 'Noto Serif SC', serif;
+        }
+
+        .bg-light {
+            background-color: #f8f9fa;
+        }
+
+        .text-primary {
+            color: #3a5e72;
+        }
+
+        .text-secondary {
+            color: #5a5a5a;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .max-w-7xl {
+            max-width: 80rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .inset-0 {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .h-\[500px\] {
+            height: 500px;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .transition-colors {
+            transition-property: color, background-color, border-color;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .hover\:bg-secondary\/90:hover {
+            background-color: rgba(90, 90, 90, 0.9);
+        }
+
+        .hover\:bg-secondary\/20:hover {
+            background-color: rgba(90, 90, 90, 0.2);
+        }
+
+        .ml-2 {
+            margin-left: 0.5rem;
+        }
+
+        .map-legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-size: 14px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .legend-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        .custom-popup {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .popup-title {
+            font-weight: bold;
+            color: #3a5e72;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .popup-desc {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .popup-link {
+            display: inline-block;
+            background: #3a5e72;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+            .popup-link:hover {
+                background: #2c4859;
+            }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .px-4 {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            .flex-wrap {
+                justify-content: center;
+            }
+
+            .map-legend {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+
+        /* 标题响应式 */
+        .text-\[clamp\(1\.8rem\2c 5vw\2c 2\.5rem\)\] {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+        }
+    </style>
+</head>
+<body>
+    <!-- 非遗地图预览 -->
+    <section class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-song font-bold text-[clamp(1.8rem,5vw,2.5rem)] text-primary mb-4">非遗地图</h2>
+                <p class="text-secondary/80 max-w-2xl mx-auto">
+                    探索全国各地的非遗工坊分布，感受不同地域的文化特色与传统技艺
+                </p>
+            </div>
+
+            <div class="glass rounded-xl overflow-hidden shadow-lg">
+                <div class="relative h-[500px]" id="mapContainer">
+                    <!-- 地图将通过Leaflet.js加载 -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-light/50" id="loadingIndicator">
+                        <div class="text-center">
+                            <i class="fa fa-map-marker text-4xl text-primary mb-4"></i>
+                            <p class="text-secondary/80">加载地图中...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button class="bg-primary text-light px-4 py-2 rounded-full text-sm font-medium" data-area="all">全国</button>
+
+                        <!-- 原有省份按钮 -->
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="jiangsu">江苏</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="shaanxi">陕西</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="zhejiang">浙江</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="guangdong">广东</button>
+
+                        <!-- 新增省份按钮 -->
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="beijing">北京</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="shanghai">上海</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="tianjin">天津</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="chongqing">重庆</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="sichuan">四川</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="henan">河南</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="shandong">山东</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="shanxi">山西</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="hebei">河北</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="hubei">湖北</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="hunan">湖南</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="fujian">福建</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="jiangxi">江西</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="anhui">安徽</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="yunnan">云南</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="guizhou">贵州</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="guangxi">广西</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="neimenggu">内蒙古</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="xinjiang">新疆</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="xizang">西藏</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="gansu">甘肃</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="qinghai">青海</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="ningxia">宁夏</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="liaoning">辽宁</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="jilin">吉林</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="heilongjiang">黑龙江</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="hainan">海南</button>
+                        <button class="bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium hover:bg-secondary/20 transition-colors" data-area="taiwan">台湾</button>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="#" class="inline-block bg-secondary text-light px-8 py-3 rounded-lg font-medium hover:bg-secondary/90 transition-colors">
+                            查看完整地图 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 初始化地图
+            const map = L.map('mapContainer', {
+                zoomControl: true,
+                scrollWheelZoom: true
+            }).setView([35.0, 105.0], 4);
+
+            setTimeout(function () {
+                map.invalidateSize();
+            }, 200);
+
+            // 添加OpenStreetMap图层
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            // 定义不同非遗类型的图标
+            const iconColors = {
+                craft: '#e74c3c',
+                music: '#3498db',
+                dance: '#9b59b6',
+                festival: '#f1c40f',
+                food: '#e67e22'
+            };
+
+            function createCustomIcon(type) {
+                const iconHtml = `<div style="
+                                    background-color: ${iconColors[type]};
+                                    width: 30px;
+                                    height: 30px;
+                                    border-radius: 50% 50% 50% 0;
+                                    transform: rotate(-45deg);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+                                ">
+                                    <div style="transform: rotate(45deg); color: white; font-size: 14px;">
+                                        <i class="fa ${getIconForType(type)}"></i>
+                                    </div>
+                                </div>`;
+
+                return L.divIcon({
+                    html: iconHtml,
+                    className: 'custom-marker',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 30]
+                });
+            }
+
+            function getIconForType(type) {
+                const icons = {
+                    craft: 'fa-paint-brush',
+                    music: 'fa-music',
+                    dance: 'fa-child',
+                    festival: 'fa-calendar',
+                    food: 'fa-cutlery'
+                };
+                return icons[type] || 'fa-star';
+            }
+
+            // 非遗工坊数据（完整版本）
+            const heritageSites = [
+                // 原有地点集合
+                {
+                    name: "南京云锦研究所", lat: 32.061, lng: 118.778, type: "craft", province: "jiangsu",
+                    desc: "南京云锦织造技艺，中国传统织锦技艺代表作之一"
+                },
+                {
+                    name: "苏州刺绣博物馆", lat: 31.323, lng: 120.627, type: "craft", province: "jiangsu",
+                    desc: "苏绣是中国四大名绣之一，以精细雅洁著称"
+                },
+                {
+                    name: "西安鼓乐社", lat: 34.266, lng: 108.942, type: "music", province: "shaanxi",
+                    desc: "西安鼓乐是流传于西安地区的传统鼓乐"
+                },
+                {
+                    name: "秦腔艺术中心", lat: 34.345, lng: 108.940, type: "music", province: "shaanxi",
+                    desc: "秦腔是中国汉族最古老的戏剧之一"
+                },
+                {
+                    name: "杭州西湖绸伞", lat: 30.247, lng: 120.217, type: "craft", province: "zhejiang",
+                    desc: "西湖绸伞以竹作骨，以绸张面，轻巧悦目"
+                },
+                {
+                    name: "龙泉青瓷工坊", lat: 28.074, lng: 119.141, type: "craft", province: "zhejiang",
+                    desc: "龙泉青瓷传统烧制技艺是一种具有制作性、技能性和艺术性的传统手工艺"
+                },
+                {
+                    name: "广彩瓷烧制", lat: 23.130, lng: 113.259, type: "craft", province: "guangdong",
+                    desc: "广彩瓷烧制技艺是广州地区釉上彩瓷艺术的简称"
+                },
+                {
+                    name: "粤剧艺术博物馆", lat: 23.115, lng: 113.250, type: "music", province: "guangdong",
+                    desc: "粤剧是用粤语演唱的戏剧样式，有300余年的历史"
+                },
+                {
+                    name: "陕北秧歌传承基地", lat: 37.595, lng: 109.486, type: "dance", province: "shaanxi",
+                    desc: "陕北秧歌是流传于陕北高原的一种具有广泛群众性的传统舞蹈"
+                },
+                {
+                    name: "广东醒狮团", lat: 23.125, lng: 113.280, type: "dance", province: "guangdong",
+                    desc: "广东醒狮属于中国狮舞中的南狮，是一种地道的广东省传统民间舞蹈"
+                },
+
+                // 第一部分新增地点
+                {
+                    name: "北京景泰蓝工坊", lat: 39.904, lng: 116.407, type: "craft", province: "beijing",
+                    desc: "景泰蓝又称铜胎掐丝珐琅，是北京著名的传统手工艺品"
+                },
+                {
+                    name: "天津杨柳青年画社", lat: 39.142, lng: 117.200, type: "craft", province: "tianjin",
+                    desc: "杨柳青年画是中国著名的民间木版年画，与苏州桃花坞年画并称南桃北柳"
+                },
+                {
+                    name: "成都蜀绣研究所", lat: 30.657, lng: 104.066, type: "craft", province: "sichuan",
+                    desc: "蜀绣是中国四大名绣之一，以针法严谨、针脚平齐著称"
+                },
+                {
+                    name: "景德镇陶瓷艺术中心", lat: 29.274, lng: 117.219, type: "craft", province: "jiangxi",
+                    desc: "景德镇陶瓷烧制技艺历史悠久，被誉为'白如玉、明如镜、薄如纸、声如磬'"
+                },
+                {
+                    name: "少林寺武术学校", lat: 34.467, lng: 113.025, type: "dance", province: "henan",
+                    desc: "少林武术是中国著名的武术流派，历史悠久，影响深远"
+                },
+                {
+                    name: "蒙古族长调民歌传承", lat: 40.812, lng: 111.657, type: "music", province: "neimenggu",
+                    desc: "蒙古族长调民歌是蒙古族音乐的杰出代表，2005年被列入世界非物质文化遗产"
+                },
+                {
+                    name: "傣族泼水节活动中心", lat: 22.789, lng: 100.970, type: "festival", province: "yunnan",
+                    desc: "泼水节是傣族最隆重的传统节日，象征着洗去旧年的不顺，迎接新年的美好与吉祥"
+                },
+                {
+                    name: "潍坊风筝制作坊", lat: 36.706, lng: 119.199, type: "craft", province: "shandong",
+                    desc: "潍坊是中国著名的'风筝之都'，潍坊风筝制作技艺历史悠久"
+                },
+                {
+                    name: "重庆火锅技艺传承", lat: 29.563, lng: 106.550, type: "food", province: "chongqing",
+                    desc: "重庆火锅以其麻辣鲜香著称，是中国饮食文化的重要组成部分"
+                },
+                {
+                    name: "山西平遥推光漆器", lat: 37.209, lng: 112.187, type: "craft", province: "shanxi",
+                    desc: "平遥推光漆器是中国四大名漆器之一，以其独特的工艺和光泽著称"
+                },
+                {
+                    name: "哈尔滨冰雕艺术", lat: 45.803, lng: 126.534, type: "craft", province: "heilongjiang",
+                    desc: "哈尔滨冰雕是中国北方冬季著名的民间艺术形式"
+                },
+                {
+                    name: "湖南湘绣研究院", lat: 28.194, lng: 112.982, type: "craft", province: "hunan",
+                    desc: "湘绣是中国四大名绣之一，以其色彩浓郁、针法细腻而闻名"
+                },
+                {
+                    name: "福建土楼营造技艺", lat: 24.508, lng: 117.383, type: "craft", province: "fujian",
+                    desc: "福建土楼营造技艺是中国传统民居建筑的杰出代表"
+                },
+                {
+                    name: "端午节龙舟赛", lat: 29.311, lng: 112.271, type: "festival", province: "hubei",
+                    desc: "端午节龙舟赛是纪念屈原的传统民俗活动，在中国南方广泛流传"
+                },
+                {
+                    name: "云南普洱茶制作", lat: 22.789, lng: 100.970, type: "food", province: "yunnan",
+                    desc: "普洱茶制作技艺是云南特有的传统茶叶加工工艺"
+                },
+                {
+                    name: "新疆维吾尔木卡姆", lat: 43.825, lng: 87.616, type: "music", province: "xinjiang",
+                    desc: "维吾尔木卡姆是集歌、舞、乐于一体的大型综合艺术形式"
+                },
+                {
+                    name: "安徽宣纸制作技艺", lat: 30.057, lng: 118.281, type: "craft", province: "anhui",
+                    desc: "宣纸是中国传统的古典书画用纸，有'纸中之王、千年寿纸'的美誉"
+                },
+                {
+                    name: "贵州苗族银饰锻造", lat: 26.589, lng: 106.713, type: "craft", province: "guizhou",
+                    desc: "苗族银饰锻造技艺是苗族民间独有的传统工艺"
+                },
+                {
+                    name: "上海小笼包制作", lat: 31.230, lng: 121.473, type: "food", province: "shanghai",
+                    desc: "上海小笼包是上海著名的传统小吃，以皮薄馅多、味道鲜美著称"
+                },
+                {
+                    name: "内蒙古那达慕大会", lat: 40.812, lng: 111.657, type: "festival", province: "neimenggu",
+                    desc: "那达慕大会是蒙古族传统的群众性集会，有摔跤、赛马、射箭等传统项目"
+                },
+
+                // 第二部分新增地点
+                {
+                    name: "河北衡水内画艺术", lat: 37.733, lng: 115.700, type: "craft", province: "hebei",
+                    desc: "衡水内画是一种鼻烟壶内壁绘画技艺，是中国独有的民间工艺"
+                },
+                {
+                    name: "甘肃兰州牛肉面制作", lat: 36.061, lng: 103.834, type: "food", province: "gansu",
+                    desc: "兰州牛肉面是甘肃著名的传统面食，以一清二白三红四绿五黄著称"
+                },
+                {
+                    name: "广西壮族歌圩", lat: 22.820, lng: 108.320, type: "music", province: "guangxi",
+                    desc: "壮族歌圩是壮族群众在特定时间、地点举行的节日性聚会歌唱活动"
+                },
+                {
+                    name: "辽宁沈阳剪纸", lat: 41.806, lng: 123.429, type: "craft", province: "liaoning",
+                    desc: "沈阳剪纸是辽宁著名的民间艺术，题材广泛，风格独特"
+                },
+                {
+                    name: "青海塔尔寺酥油花", lat: 36.333, lng: 101.750, type: "craft", province: "qinghai",
+                    desc: "酥油花是用酥油制作的一种特殊形式的雕塑艺术，是塔尔寺三绝之一"
+                },
+                {
+                    name: "宁夏回族花儿", lat: 38.476, lng: 106.202, type: "music", province: "ningxia",
+                    desc: "回族花儿是流行于宁夏的一种民间歌曲，具有浓郁的民族特色"
+                },
+                {
+                    name: "西藏拉萨藏戏", lat: 29.647, lng: 91.132, type: "music", province: "xizang",
+                    desc: "藏戏是藏族戏剧的泛称，是世界非物质文化遗产之一"
+                },
+                {
+                    name: "江苏扬州漆器厂", lat: 32.400, lng: 119.417, type: "craft", province: "jiangsu",
+                    desc: "扬州漆器是中国传统漆器工艺的重要流派，以其精美绝伦著称"
+                },
+                {
+                    name: "陕西凤翔泥塑", lat: 34.500, lng: 107.417, type: "craft", province: "shaanxi",
+                    desc: "凤翔泥塑是陕西著名的民间泥塑艺术，造型夸张，色彩鲜艳"
+                },
+                {
+                    name: "浙江东阳木雕", lat: 29.267, lng: 120.200, type: "craft", province: "zhejiang",
+                    desc: "东阳木雕是浙江著名的传统木雕工艺，以其精湛的技艺和精美的造型著称"
+                },
+                {
+                    name: "广东佛山剪纸", lat: 23.022, lng: 113.100, type: "craft", province: "guangdong",
+                    desc: "佛山剪纸是广东著名的民间剪纸艺术，风格独特，题材广泛"
+                },
+                {
+                    name: "河南豫剧艺术中心", lat: 34.750, lng: 113.650, type: "music", province: "henan",
+                    desc: "豫剧是河南著名的地方戏曲，是中国最大的地方戏曲剧种之一"
+                },
+                {
+                    name: "四川川剧变脸", lat: 30.670, lng: 104.060, type: "dance", province: "sichuan",
+                    desc: "川剧变脸是四川川剧表演艺术中重要的组成部分，是一种绝活"
+                },
+                {
+                    name: "江西赣南采茶戏", lat: 25.870, lng: 114.900, type: "music", province: "jiangxi",
+                    desc: "赣南采茶戏是江西著名的地方戏曲，以其欢快的节奏和优美的唱腔著称"
+                },
+                {
+                    name: "山东淄博陶瓷", lat: 36.800, lng: 118.000, type: "craft", province: "shandong",
+                    desc: "淄博陶瓷是山东著名的传统陶瓷工艺，历史悠久，品种繁多"
+                },
+                {
+                    name: "山西大同剪纸", lat: 40.070, lng: 113.300, type: "craft", province: "shanxi",
+                    desc: "大同剪纸是山西著名的民间剪纸艺术，风格粗犷，题材广泛"
+                },
+                {
+                    name: "黑龙江牡丹江剪纸", lat: 44.600, lng: 129.600, type: "craft", province: "heilongjiang",
+                    desc: "牡丹江剪纸是黑龙江著名的民间剪纸艺术，具有浓郁的北方特色"
+                },
+                {
+                    name: "湖南浏阳花炮制作", lat: 28.160, lng: 113.650, type: "craft", province: "hunan",
+                    desc: "浏阳花炮制作技艺是湖南著名的传统工艺，历史悠久，享誉世界"
+                },
+                {
+                    name: "福建泉州提线木偶", lat: 24.800, lng: 118.600, type: "dance", province: "fujian",
+                    desc: "泉州提线木偶是福建著名的传统木偶戏，是世界非物质文化遗产之一"
+                },
+                {
+                    name: "湖北武汉汉剧", lat: 30.590, lng: 114.310, type: "music", province: "hubei",
+                    desc: "汉剧是湖北著名的地方戏曲，是京剧形成的重要源头之一"
+                },
+
+                // 第三部分新增地点（补充更多省份和类型）
+                {
+                    name: "吉林朝鲜族农乐舞", lat: 43.856, lng: 125.323, type: "dance", province: "jilin",
+                    desc: "朝鲜族农乐舞是集演奏、演唱、舞蹈于一体的综合性民间艺术"
+                },
+                {
+                    name: "海南黎族制陶技艺", lat: 18.180, lng: 109.500, type: "craft", province: "hainan",
+                    desc: "黎族制陶技艺是中国原始制陶工艺的活化石，已有数千年历史"
+                },
+                {
+                    name: "台湾高山族歌舞", lat: 25.038, lng: 121.525, type: "music", province: "taiwan",
+                    desc: "高山族歌舞是台湾原住民文化的重要组成部分，具有浓郁的民族特色"
+                },
+                {
+                    name: "江苏苏州评弹", lat: 31.299, lng: 120.619, type: "music", province: "jiangsu",
+                    desc: "苏州评弹是苏州评话和苏州弹词的总称，是中国著名的曲艺形式"
+                },
+                {
+                    name: "浙江越剧艺术中心", lat: 30.274, lng: 120.155, type: "music", province: "zhejiang",
+                    desc: "越剧是中国第二大戏曲剧种，发源于浙江嵊州，流行于全国"
+                },
+                {
+                    name: "安徽黄梅戏", lat: 30.583, lng: 117.220, type: "music", province: "anhui",
+                    desc: "黄梅戏是安徽著名的地方戏曲，以其清新明快的风格深受观众喜爱"
+                },
+                {
+                    name: "云南丽江纳西古乐", lat: 26.868, lng: 100.254, type: "music", province: "yunnan",
+                    desc: "纳西古乐是流传于丽江地区的古老音乐，被誉为'音乐活化石'"
+                },
+                {
+                    name: "贵州侗族大歌", lat: 26.200, lng: 109.180, type: "music", province: "guizhou",
+                    desc: "侗族大歌是一种无伴奏多声部合唱，被列入世界非物质文化遗产"
+                },
+                {
+                    name: "陕西西安肉夹馍制作", lat: 34.341, lng: 108.939, type: "food", province: "shaanxi",
+                    desc: "西安肉夹馍是陕西著名的传统小吃，历史悠久，风味独特"
+                },
+                {
+                    name: "山东曲阜孔府菜", lat: 35.587, lng: 116.985, type: "food", province: "shandong",
+                    desc: "孔府菜是中国四大菜系之外的著名菜系，是中国饮食文化的重要组成部分"
+                },
+                {
+                    name: "四川成都川菜烹饪", lat: 30.657, lng: 104.066, type: "food", province: "sichuan",
+                    desc: "川菜是中国八大菜系之一，以其麻辣鲜香著称，影响深远"
+                },
+                {
+                    name: "广东顺德粤菜烹饪", lat: 22.807, lng: 113.264, type: "food", province: "guangdong",
+                    desc: "粤菜是中国八大菜系之一，以其选料精细、口味清淡著称"
+                },
+                {
+                    name: "福建福州佛跳墙制作", lat: 26.099, lng: 119.295, type: "food", province: "fujian",
+                    desc: "佛跳墙是福建著名的传统名菜，被誉为'天下第一汤'"
+                },
+                {
+                    name: "浙江杭州龙井茶艺", lat: 30.274, lng: 120.155, type: "food", province: "zhejiang",
+                    desc: "龙井茶制作技艺和品饮艺术是浙江著名的传统茶文化"
+                },
+                {
+                    name: "北京烤鸭技艺", lat: 39.904, lng: 116.407, type: "food", province: "beijing",
+                    desc: "北京烤鸭是北京著名的传统名菜，被誉为'天下第一美味'"
+                },
+                {
+                    name: "江苏南京盐水鸭制作", lat: 32.061, lng: 118.778, type: "food", province: "jiangsu",
+                    desc: "南京盐水鸭是江苏著名的传统名菜，有'金陵鸭肴甲天下'之称"
+                },
+                {
+                    name: "湖北武汉热干面制作", lat: 30.590, lng: 114.310, type: "food", province: "hubei",
+                    desc: "武汉热干面是湖北著名的传统小吃，以其独特的风味深受喜爱"
+                },
+                {
+                    name: "湖南长沙臭豆腐制作", lat: 28.194, lng: 112.982, type: "food", province: "hunan",
+                    desc: "长沙臭豆腐是湖南著名的传统小吃，以其闻起来臭、吃起来香著称"
+                },
+                {
+                    name: "云南过桥米线制作", lat: 25.038, lng: 102.718, type: "food", province: "yunnan",
+                    desc: "过桥米线是云南著名的传统小吃，以其独特的吃法和鲜美的味道著称"
+                },
+                {
+                    name: "甘肃敦煌壁画临摹技艺", lat: 40.143, lng: 94.669, type: "craft", province: "gansu",
+                    desc: "敦煌壁画临摹技艺是传承和保护敦煌文化的重要手段，具有重要的艺术价值"
+                }
+            ];
+
+            // 添加标记点到地图
+            const markers = [];
+            heritageSites.forEach(site => {
+                const marker = L.marker([site.lat, site.lng], { icon: createCustomIcon(site.type) })
+                    .addTo(map)
+                    .bindPopup(`
+                                        <div class="custom-popup">
+                                            <div class="popup-title">${site.name}</div>
+                                            <div class="popup-desc">${site.desc}</div>
+                                            <a href="#" class="popup-link">了解更多</a>
+                                        </div>
+                                    `);
+
+                markers.push({
+                    marker: marker,
+                    province: site.province,
+                    type: site.type
+                });
+            });
+
+            // 完整的省份边界数据
+            const provinceBounds = {
+                jiangsu: [[30.75, 116.2], [35.4, 122.0]],
+                shaanxi: [[31.5, 105.5], [39.8, 111.3]],
+                zhejiang: [[27.1, 118.0], [31.2, 123.3]],
+                guangdong: [[20.1, 109.6], [25.5, 117.4]],
+                beijing: [[39.7, 116.1], [40.2, 116.7]],
+                tianjin: [[38.9, 116.7], [39.3, 117.4]],
+                sichuan: [[26.0, 97.2], [34.0, 110.2]],
+                jiangxi: [[24.3, 113.5], [30.1, 118.3]],
+                henan: [[31.3, 110.2], [36.3, 116.6]],
+                neimenggu: [[37.4, 97.1], [53.2, 126.0]],
+                yunnan: [[21.1, 97.3], [29.2, 106.1]],
+                shandong: [[34.2, 114.8], [38.4, 122.9]],
+                chongqing: [[28.4, 105.2], [30.9, 109.1]],
+                shanxi: [[34.5, 110.1], [40.5, 114.4]],
+                heilongjiang: [[43.6, 121.1], [53.6, 135.1]],
+                hunan: [[24.6, 108.5], [30.1, 114.2]],
+                fujian: [[23.0, 115.5], [28.3, 120.9]],
+                hubei: [[29.0, 108.3], [33.3, 116.2]],
+                xinjiang: [[34.2, 73.4], [49.2, 96.3]],
+                anhui: [[29.2, 114.8], [34.6, 119.6]],
+                guizhou: [[24.5, 103.6], [29.2, 109.0]],
+                shanghai: [[30.8, 121.2], [31.5, 121.9]],
+                hebei: [[36.0, 113.4], [42.7, 119.8]],
+                gansu: [[32.6, 92.2], [42.8, 108.8]],
+                guangxi: [[20.5, 104.0], [26.3, 112.1]],
+                liaoning: [[38.4, 118.5], [43.3, 125.4]],
+                qinghai: [[31.6, 89.4], [39.2, 103.0]],
+                ningxia: [[35.2, 104.0], [39.4, 107.4]],
+                xizang: [[26.8, 78.0], [36.8, 99.0]],
+                jilin: [[40.6, 121.8], [46.3, 131.2]],
+                hainan: [[18.0, 108.3], [20.1, 111.3]],
+                taiwan: [[21.9, 120.8], [25.3, 122.0]],
+                all: [[18.0, 73.5], [53.5, 135.0]]
+            };
+
+            // 添加省份筛选功能
+            document.querySelectorAll('button[data-area]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const area = this.getAttribute('data-area');
+
+                    // 更新按钮样式
+                    document.querySelectorAll('button[data-area]').forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-light');
+                        btn.classList.add('bg-secondary/10', 'text-secondary');
+                    });
+                    this.classList.remove('bg-secondary/10', 'text-secondary');
+                    this.classList.add('bg-primary', 'text-light');
+
+                    // 移动地图视图
+                    if (area === 'all') {
+                        map.setView([35.0, 105.0], 4);
+                    } else if (provinceBounds[area]) {
+                        map.fitBounds(provinceBounds[area]);
+                    }
+
+                    // 过滤标记点
+                    markers.forEach(item => {
+                        if (area === 'all' || item.province === area) {
+                            if (!map.hasLayer(item.marker)) {
+                                item.marker.addTo(map);
+                            }
+                        } else {
+                            if (map.hasLayer(item.marker)) {
+                                map.removeLayer(item.marker);
+                            }
+                        }
+                    });
+                });
+            });
+
+            // 添加图例
+            const legend = L.control({ position: 'bottomright' });
+            legend.onAdd = function (map) {
+                const div = L.DomUtil.create('div', 'map-legend');
+                div.innerHTML = `
+                                    <h4 style="margin-bottom: 10px; color: #3a5e72;">非遗类型</h4>
+                                    <div class="legend-item">
+                                        <div class="legend-icon" style="background: ${iconColors.craft};">
+                                            <i class="fa fa-paint-brush"></i>
+                                        </div>
+                                        <span>传统工艺</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-icon" style="background: ${iconColors.music};">
+                                            <i class="fa fa-music"></i>
+                                        </div>
+                                        <span>传统音乐</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-icon" style="background: ${iconColors.dance};">
+                                            <i class="fa fa-child"></i>
+                                        </div>
+                                        <span>传统舞蹈</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-icon" style="background: ${iconColors.festival};">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <span>民俗节庆</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-icon" style="background: ${iconColors.food};">
+                                            <i class="fa fa-cutlery"></i>
+                                        </div>
+                                        <span>传统美食</span>
+                                    </div>
+                                `;
+                return div;
+            };
+            legend.addTo(map);
+
+            // 隐藏加载指示器
+            document.getElementById('loadingIndicator').style.display = 'none';
+        });
+    </script>
+
+
+
+    <!-- 非遗故事 -->
+    <section class="py-20 bg-gradient-to-b from-secondary/5 to-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+                <div>
+                    <h2 class="font-song font-bold text-[clamp(1.8rem,5vw,2.5rem)] text-primary mb-4">非遗故事</h2>
+                    <p class="text-secondary/80 max-w-2xl">
+                        每一项非遗背后都有动人的故事，每一位传承人都在坚守中创新
+                    </p>
+                </div>
+                <a href="stories.html" class="mt-4 md:mt-0 text-primary font-medium hover:underline flex items-center">
+                    更多故事 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 故事1 -->
+                <div class="card-float glass rounded-xl overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-2/5 relative">
+                        <img src="aa/suxiuchuancheng.jpg" alt="苏绣传承故事" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-3/5 p-6 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-secondary bg-secondary/10 px-3 py-1 rounded-full">传承故事</span>
+                            <h3 class="font-bold text-xl text-primary mt-3 mb-3">三代人的苏绣情缘</h3>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-4">
+                                李芳家族三代人都致力于苏绣技艺的传承与创新。从祖母在民国时期的艰难坚守，到母亲在改革开放后的大胆创新，再到李芳将苏绣与现代设计相结合，每一代都在用自己的方式延续着这份美丽的事业...
+                            </p>
+                        </div>
+                        <a href="stories.html#su-embroidery-story" class="text-primary font-medium hover:underline flex items-center mt-2">
+                            阅读全文 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 故事2 -->
+                <div class="card-float glass rounded-xl overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-2/5 relative">
+                        <img src="aa/susnmaochuancheng.jpg" alt="榫卯传承故事" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-3/5 p-6 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs text-secondary bg-secondary/10 px-3 py-1 rounded-full">匠心故事</span>
+                            <h3 class="font-bold text-xl text-primary mt-3 mb-3">坚守四十年的榫卯匠人</h3>
+                            <p class="text-dark/80 text-sm mb-4 line-clamp-4">
+                                王建国从16岁起跟随父亲学习榫卯工艺，如今已近花甲之年。四十年来，他见证了传统木工行业的兴衰起伏，始终坚持用最传统的技法制作家具。"不用一钉一胶，却能让家具使用百年"，这是他对自己作品的承诺...
+                            </p>
+                        </div>
+                        <a href="stories.html#joinery-story" class="text-primary font-medium hover:underline flex items-center mt-2">
+                            阅读全文 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="w-full bg-dark text-light py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                            <i class="fa fa-pagelines text-light text-xl"></i>
+                        </div>
+                        <span class="font-song font-bold text-xl text-light">非遗工坊</span>
+                    </div>
+                    <p class="text-light/70 mb-6">用科技传承非遗，让文化焕发新生</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-light hover:bg-primary/40 transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-light hover:bg-primary/40 transition-colors">
+                            <i class="fa fa-wechat"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-light hover:bg-primary/40 transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-light/70 hover:text-primary transition-colors">首页</a></li>
+                        <li><a href="heritage.html" class="text-light/70 hover:text-primary transition-colors">非遗库</a></li>
+                        <li><a href="class.html" class="text-light/70 hover:text-primary transition-colors">在线课堂</a></li>
+                        <li><a href="map.html" class="text-light/70 hover:text-primary transition-colors">非遗地图</a></li>
+                        <li><a href="stories.html" class="text-light/70 hover:text-primary transition-colors">非遗故事</a></li>
+                        <li><a href="crowdfunding.html" class="text-light/70 hover:text-primary transition-colors">文创众筹</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-envelope-o text-primary mt-1"></i>
+                            <span class="text-light/70">contact@feiyigongfang.com</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-phone text-primary mt-1"></i>
+                            <span class="text-light/70">400-123-4567</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-primary mt-1"></i>
+                            <span class="text-light/70">北京市海淀区文化创意产业园A座101</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-6">订阅资讯</h3>
+                    <p class="text-light/70 mb-4">订阅我们的 newsletter，获取最新非遗活动和课程信息</p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱地址" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-dark">
+                        <button type="submit" class="bg-primary text-light px-4 py-2 rounded-r-lg hover:bg-primary/90 transition-colors">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-light/10 mt-12 pt-8 text-center text-light/50 text-sm">
+                <p>© 2025 非遗工坊数字化传承平台 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 高德地图API -->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=4942702795039917974474301a670b41"></script>
+
+    <!-- 脚本 -->
+    <script>
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('glass');
+                navbar.classList.add('bg-light');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('glass');
+                navbar.classList.remove('bg-light');
+            }
+        });
+
+        // 初始化地图
+        window.onload = function () {
+            // 初始化地图实例
+            const map = new AMap.Map('mapContainer', {
+                zoom: 4, // 地图缩放级别
+                center: [105.718636, 34.530415], // 地图中心点，中国地理中心
+                resizeEnable: true // 允许地图根据容器大小调整
+            });
+
+            // 添加地图控件
+            map.addControl(new AMap.ToolBar({
+                position: 'RB'
+            }));
+
+            // 非遗工坊数据
+            const heritageWorkshops = [
+                {
+                    name: '苏州苏绣工坊',
+                    type: '苏绣',
+                    address: '江苏省苏州市姑苏区平江路123号',
+                    position: [120.619585, 31.325143],
+                    level: '国家级'
+                },
+                {
+                    name: '华县皮影戏传习所',
+                    type: '皮影戏',
+                    address: '陕西省渭南市华县皮影艺术街45号',
+                    position: [109.766428, 34.494152],
+                    level: '国家级'
+                },
+                {
+                    name: '东阳木雕工坊',
+                    type: '木雕',
+                    address: '浙江省金华市东阳市横店镇木雕路78号',
+                    position: [120.363635, 29.295415],
+                    level: '国家级'
+                },
+                {
+                    name: '潮州剪纸艺术中心',
+                    type: '剪纸',
+                    address: '广东省潮州市湘桥区太平路123号',
+                    position: [116.638823, 23.669725],
+                    level: '省级'
+                },
+                {
+                    name: '成都蜀绣研究院',
+                    type: '蜀绣',
+                    address: '四川省成都市青羊区琴台路15号',
+                    position: [104.065735, 30.659462],
+                    level: '国家级'
+                }
+            ];
+
+            // 添加标记点
+            heritageWorkshops.forEach(workshop => {
+                const marker = new AMap.Marker({
+                    position: workshop.position,
+                    title: workshop.name,
+                    anchor: 'bottom-center',
+                    icon: new AMap.Icon({
+                        size: new AMap.Size(32, 32),
+                        image: 'https://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png',
+                        imageSize: new AMap.Size(32, 32)
+                    })
+                });
+
+                // 添加信息窗口
+                const infoWindow = new AMap.InfoWindow({
+                    content: `
+                                        <div style="padding: 10px;">
+                                            <h3 style="margin: 0 0 5px 0; color: #9E2A2B;">${workshop.name}</h3>
+                                            <p style="margin: 0 0 3px 0; font-size: 14px;">类型：${workshop.type}</p>
+                                            <p style="margin: 0 0 3px 0; font-size: 14px;">级别：${workshop.level}</p>
+                                            <p style="margin: 0; font-size: 14px;">地址：${workshop.address}</p>
+                                            <a href="heritage-detail.html?type=${workshop.type}" style="display: inline-block; margin-top: 8px; color: #2A6F97;">查看详情</a>
+                                        </div>
+                                    `,
+                    offset: new AMap.Pixel(0, -30)
+                });
+
+                marker.on('click', function () {
+                    infoWindow.open(map, marker.getPosition());
+                });
+
+                map.add(marker);
+            });
+
+            // 地区筛选功能
+            const areaButtons = document.querySelectorAll('[data-area]');
+            areaButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // 重置按钮样式
+                    areaButtons.forEach(btn => {
+                        btn.classList.remove('bg-primary', 'text-light');
+                        btn.classList.add('bg-secondary/10', 'text-secondary');
+                    });
+
+                    // 设置当前按钮样式
+                    this.classList.add('bg-primary', 'text-light');
+                    this.classList.remove('bg-secondary/10', 'text-secondary');
+
+                    const area = this.getAttribute('data-area');
+
+                    // 根据地区设置地图中心和缩放级别
+                    switch (area) {
+                        case 'all':
+                            map.setZoomAndCenter(4, [105.718636, 34.530415]);
+                            break;
+                        case 'jiangsu':
+                            map.setZoomAndCenter(8, [118.796877, 32.060255]);
+                            break;
+                        case 'shaanxi':
+                            map.setZoomAndCenter(8, [108.954173, 34.265916]);
+                            break;
+                        case 'zhejiang':
+                            map.setZoomAndCenter(8, [120.15507, 30.274084]);
+                            break;
+                        case 'guangdong':
+                            map.setZoomAndCenter(8, [113.264385, 23.129113]);
+                            break;
+                    }
+                });
+            });
+        };
+    </script>
+
+
+
+    <!-- 注册Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('✅ ServiceWorker 注册成功：', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ ServiceWorker 注册失败：', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>课程列表 - 非遗工坊</title>
+  <!-- 引入Tailwind CSS（CDN） -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome图标（CDN） -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <!-- 自定义样式（与工作台风格一致） -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .bg-beige {
+        background-color: #f9f5eb; /* 米黄色背景，与工作台一致 */
+      }
+      .card-shadow {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+    }
+  </style>
+  <!-- 配置Tailwind主题（扩展颜色、字体，与现有项目一致） -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9E2A2B',   // 主色（与现有项目一致）
+            secondary: '#2A6F97', // 辅助色（与现有项目一致）
+            light: '#F5F0E6',     // 浅色调（与现有项目一致）
+            dark: '#332E29',      // 深色调（与现有项目一致）
+          },
+          fontFamily: {
+            song: ['"Noto Serif SC"', 'serif'],   // 宋体风格
+            sans: ['"Noto Sans SC"', 'sans-serif'], // 无衬线风格
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-beige font-sans text-dark min-h-screen">
+  <!-- 顶部导航栏（与现有页面风格一致） -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <!-- Logo区域 -->
+      <div class="flex items-center space-x-2">
+        <i class="fa fa-leaf text-primary text-2xl"></i>
+        <h1 class="text-xl font-song font-bold text-primary">非遗工坊</h1>
+      </div>
+      <!-- 导航菜单（与现有页面一致） -->
+      <nav class="hidden md:flex space-x-6">
+        <a
+          href="index.html"
+          class="text-dark hover:text-primary transition-colors"
+          >首页</a
+        >
+        <a
+          href="heritage.html"
+          class="text-dark hover:text-primary transition-colors"
+          >非遗库</a
+        >
+        <div class="relative group">
+          <button class="text-dark hover:text-primary transition-colors flex items-center">
+            在线课堂
+            <i class="fa fa-angle-down ml-1 text-sm"></i>
+          </button>
+          <div
+            class="absolute left-0 mt-2 w-40 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10"
+          >
+            <a
+              href="course-list.html"
+              class="block px-4 py-2 text-dark hover:bg-light"
+              >课程列表</a
+            >
+            <a
+              href="inheritor-dashboard.html"
+              class="block px-4 py-2 text-dark hover:bg-light"
+              >传承人工作台</a
+            >
+            <a
+              href="inheritor-certify.html"
+              class="block px-4 py-2 text-dark hover:bg-light"
+              >传承人认证</a
+            >
+          </div>
+        </div>
+        <a
+          href="map.html"
+          class="text-dark hover:text-primary transition-colors"
+          >非遗地图</a
+        >
+        <a
+          href="stories.html"
+          class="text-dark hover:text-primary transition-colors"
+          >非遗故事</a
+        >
+        <a
+          href="crowdfunding.html"
+          class="text-dark hover:text-primary transition-colors"
+          >文创众筹</a
+        >
+      </nav>
+      <!-- 移动端菜单按钮（可选，简化版） -->
+      <button class="md:hidden text-dark">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- 主要内容区域 -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- 页面标题 -->
+    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-song font-bold text-primary mb-6">
+      非遗教学课程列表
+    </h2>
+    <!-- 课程卡片容器（垂直排列） -->
+    <div class="space-y-6">
+      <!-- 课程卡片1：苏绣基础针法入门 -->
+      <div class="bg-white rounded-lg p-6 card-shadow hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- 课程封面 -->
+          <div class="md:w-1/3">
+            <img
+              src="aa/suxiu4.jpg"
+              alt="苏绣基础针法入门"
+              class="w-full h-48 object-cover rounded-md"
+            />
+          </div>
+          <!-- 课程信息 -->
+          <div class="md:w-2/3 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-song font-bold text-dark mb-2">
+                苏绣基础针法入门
+              </h3>
+              <p class="text-gray-600 mb-4">
+                本课程将带你学习苏绣最核心的平针、乱针、打籽针等基础针法，从握针到走线，逐步掌握苏绣的细腻表现力。
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">传统技艺</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">苏绣</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">初级</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-gray-500 text-sm">讲师：王丽华</span>
+                <span class="text-gray-500 text-sm ml-4">课时：8课时</span>
+              </div>
+              <a
+                href="class.html?id=1"
+                class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+              >
+                立即报名
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 课程卡片2：皮影戏制作与表演 -->
+      <div class="bg-white rounded-lg p-6 card-shadow hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="md:w-1/3">
+            <img
+              src="aa/piyingxi.jpg"
+              alt="皮影戏制作与表演"
+              class="w-full h-48 object-cover rounded-md"
+            />
+          </div>
+          <div class="md:w-2/3 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-song font-bold text-dark mb-2">
+                皮影戏制作与表演
+              </h3>
+              <p class="text-gray-600 mb-4">
+                从皮影雕刻、上色到表演技巧，全方位学习皮影戏这一古老民间艺术的传承与创新，适合零基础爱好者。
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">民间艺术</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">皮影戏</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">中级</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-gray-500 text-sm">讲师：李建国</span>
+                <span class="text-gray-500 text-sm ml-4">课时：12课时</span>
+              </div>
+              <a
+                href="class.html?id=2"
+                class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+              >
+                立即报名
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 课程卡片3：剪纸艺术创意设计 -->
+      <div class="bg-white rounded-lg p-6 card-shadow hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="md:w-1/3">
+            <img
+              src="aa/cixiu.jpg"
+              alt="剪纸艺术创意设计"
+              class="w-full h-48 object-cover rounded-md"
+            />
+          </div>
+          <div class="md:w-2/3 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-song font-bold text-dark mb-2">
+                剪纸艺术创意设计
+              </h3>
+              <p class="text-gray-600 mb-4">
+                结合传统剪纸技法与现代设计理念，学习如何创作富有创意的剪纸作品，可用于装饰、文创产品开发等。
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">民间艺术</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">剪纸</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">初级</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-gray-500 text-sm">讲师：张秀兰</span>
+                <span class="text-gray-500 text-sm ml-4">课时：6课时</span>
+              </div>
+              <a
+                href="class.html?id=3"
+                class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+              >
+                立即报名
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 课程卡片4：古琴演奏入门 -->
+      <div class="bg-white rounded-lg p-6 card-shadow hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="md:w-1/3">
+            <img
+              src="aa/guqin2.jpg"
+              alt="古琴演奏入门"
+              class="w-full h-48 object-cover rounded-md"
+            />
+          </div>
+          <div class="md:w-2/3 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-song font-bold text-dark mb-2">
+                古琴演奏入门
+              </h3>
+              <p class="text-gray-600 mb-4">
+                从古琴构造、指法入门，到经典曲目《梅花三弄》《流水》片段学习，感受中国传统乐器的悠远意境。
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">传统技艺</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">古琴</span>
+                <span class="bg-light text-primary text-sm px-3 py-1 rounded-full">初级</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="text-gray-500 text-sm">讲师：陈云鹤</span>
+                <span class="text-gray-500 text-sm ml-4">课时：10课时</span>
+              </div>
+              <a
+                href="class.html?id=4"
+                class="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+              >
+                立即报名
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页脚（与现有页面风格一致） -->
+  <footer class="bg-dark text-white py-8 mt-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-lg font-song font-bold mb-4">非遗工坊</h4>
+          <p class="text-gray-300 text-sm">
+            传承非遗文化，守护民族瑰宝。让古老技艺在现代生活中焕发新生。
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-song font-bold mb-4">快速链接</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">首页</a></li>
+            <li><a href="heritage.html" class="text-gray-300 hover:text-white transition-colors">非遗库</a></li>
+            <li><a href="course-list.html" class="text-gray-300 hover:text-white transition-colors">课程列表</a></li>
+            <li><a href="inheritor-dashboard.html" class="text-gray-300 hover:text-white transition-colors">传承人工作台</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-song font-bold mb-4">联系我们</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center"><i class="fa fa-envelope-o mr-2"></i> contact@feiyigongfang.com</li>
+            <li class="flex items-center"><i class="fa fa-phone mr-2"></i> 400-123-4567</li>
+            <li class="flex items-center"><i class="fa fa-map-marker mr-2"></i> 北京市朝阳区非遗路88号</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-song font-bold mb-4">关注我们</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fa fa-weixin text-xl"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fa fa-weibo text-xl"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors"><i class="fa fa-youtube-play text-xl"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+        © 2026 非遗工坊 版权所有 | 京ICP备12345678号
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
